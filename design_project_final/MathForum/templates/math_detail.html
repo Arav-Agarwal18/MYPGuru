@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TheMYPGuru</title>
+    <meta charset = "UTF-8">
+    <link rel="stylesheet" href="{% static 'styles.css' %}?{% now "U" %}">
+    <link rel="stylesheet" href="{% static 'forum_detail.css' %}?{% now "U" %}">
+</head>
+
+<body style="background-color: #0077B6">
+    <ul class = "navbar">
+        <li class = "website_title">TheMYPGuru</li>
+        <li><a href=# class = "nav_items">Home</a></li>
+        <li><a href=# class = "nav_items">Forum</a></li>
+        <li><a href=# class = "nav_items">About</a></li>
+        <li class = "nav_items">|</li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}" class = "nav_items"><span>{{ user.get_username }}</span></a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}" class = "nav_items">Log In</a></li>
+        {% endif %}
+    </ul>
+
+    <div class = "forum_heading">Mathematics</div>
+
+    <div class = "parent_container">
+      <div class = "centralize">
+      <div class = "detailed_post_container">
+        <h2>{{ post.title }}</h2>
+        <div class = "posted">Posted by {{ post.author.username }} on {{ post.created_at|date:"F j" }}, {{ post.created_at|time:"g:i a" }}</div>
+        <div class = "description">{{ post.description }}</div>
+        {% if post.file %}
+          <a href="{{ post.file.url }}">
+            <button class = "download">
+              Download File
+            </button>
+          </a>
+        {% endif %}
+        <div class = "category" style="background-color:
+          {% if post.category|striptags == 'Task Specific Clarifications' %}#662211; color: white;
+          {% elif post.category|striptags == 'Task Sheets' %}#d54b00; color: white;
+          {% elif post.category|striptags == 'Notes' %}#fd8320
+          {% elif post.category|striptags == 'Sample Responses' %}#ffa500
+          {% else %}#ffe7d6
+          {% endif %}">Category: {{ post.category }}
+        </div>
+      </div>
+      </div>
+
+      <div class = "comment_container">
+        <form method="POST">
+          {% csrf_token %}
+            <div class="comment_input">{{ comment_form.text }}</div>
+            <button class="comment_submit_button" type="submit" name="comment_submit">></button>          
+        </form>
+      </div>
+
+      {% for comment in comments %}
+      <div class="comment-view-container" style="white-space: nowrap;">
+        <img class="forum-image" src="{% static 'profile_photo.png' %}">
+        <div class="comment-details" style="display: inline-block;">
+          <div class="username">{{ comment.author.username }}</div>
+          <div class="date_comment">{{ comment.created_at|date:"F j, Y" }}</div>
+          <div class="comment_text">{{ comment.text }}</div>
+        </div>
+      </div>
+      
+        {% empty %}
+          <p>No comments yet.</p>
+          {% endfor %}
+          
+          <!--<h4>New Post</h4>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+              <label for="title">Title:</label>
+              <input type="text" name="title" id="title">
+            </div>
+            <div>
+              <label for="category">Category:</label>
+              <input type="text" name="category" id="category">
+            </div>
+            <div>
+              <label for="description">Description:</label>
+              <textarea name="description" id="description"></textarea>
+            </div>
+            <div>
+              <label for="file">File:</label>
+              <input type="file" name="file" id="file">
+            </div>
+            <button type="submit" name = "post_submit">Submit</button>
+          </form>
+        </div>
+      </div>-->
+
+</body>
+</html>

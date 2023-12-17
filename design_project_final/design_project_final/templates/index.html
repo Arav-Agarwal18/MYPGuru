@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TheMYPGuru</title>
+    <meta charset = "UTF-8">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+
+<body style="background-color: #0077B6">
+    <ul class = "navbar">
+        <li class = "website_title">TheMYPGuru</li>
+        <li><a href=# class = "nav_items">Home</a></li>
+        <li><a href=# class = "nav_items">Forum</a></li>
+        <li><a href=# class = "nav_items">About</a></li>
+        <li class = "nav_items">|</li>
+        {% if user.is_authenticated %}
+            <li>
+                <div class="logout">
+                    <a href="{% url 'logout' %}" class="nav_items">
+                        <span>{{ user.get_username }}</span>
+                    </a>
+                </div>
+            </li>
+        {% else %}
+            <li><a href="{% url 'login' %}" class = "nav_items">Log In</a></li>
+        {% endif %}
+    </ul>
+
+    <h2 style = "top: 150px; right: 705px; ">Hi!</h2>
+    <h1>MYP</h1>
+    <h2 style = "top: 470px; right: 655px;">discuss.</h2>
+    <h2 style = "top: 540px; right: 655px;">analyse.</h2>
+    <h2 style = "top: 610px; right: 645px;">evaulate.</h2>
+
+    <a href = {% url 'MathForum:post_list' %}>
+    <span class="circle circle-image" style="top: 72px; right: 290px; background-image: url('{% static "science_icon.jpg" %}'); background-size: 70%"></span> <!--Sciences Circle-->
+    <h3 style="top:290px; right:344px;">Sciences</h3>
+    </a>
+
+    <a href = {% url 'MathForum:post_list' %}>
+    <span class="circle circle-image" style="top: 72px; right: 970px;  background-image: url('{% static "math_icon.png" %}'); background-size: 80%"></span> <!-- Math Circle-->
+    <h3 style="top:290px; right: 1004px;">Mathematics</h3>
+    </a>
+    
+    <span class="circle circle-image" style="top: 301px; right: 1220px; background-image: url('{% static "english_icon.png" %}');"></span> <!--Language and Literature Circle-->
+    <h3 style="top: 519px; right: 1250px; text-align: center">Language and<br>Literature</h3>
+
+    <span class="circle circle-image" style="top: 301px; right: 20px; background-image: url('{% static "ins_icon.jpg" %}'); background-size: 80%"></span> <!--Individuals and Societies Circle-->
+    <h3 style ="top:519px; right: 35px; text-align: center">Individuals and<br>Societies</h3>
+
+    <span class="circle circle-image" style="top: 530px; right: 290px; background-image: url('{% static "la_icon.png" %}'); background-size: 85%"></span> <!--Language Acquisition Circle-->
+    <h3 style ="top: 748.5px; right:263px;">Language Acquistion</h3>
+
+    <span class="circle circle-image" style="top: 530px; right: 970px; background-image: url('{% static "idu_icon.png" %}');"></span> <!--Interdisciplinary Unit Circle-->
+    <h3 style ="top:748.5px; right:945px;">Interdisciplinary Unit</h3>
+
+    {% if messages %}
+        {%for message in messages%}
+            {{message}}
+        {% endfor %}
+    {% endif %}
+
+
+</body>
+</html>

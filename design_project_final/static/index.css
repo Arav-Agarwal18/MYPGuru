@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+h1
+{
+  color: white;
+  font-size: 232px;
+  font-family: Allerta Stencil;
+  text-align: center;
+}
+
+h2
+{
+  color: white;
+  font-size: 48px;
+  font-family: sans-serif;
+  position: absolute;
+}
+
+h3
+{
+  color: white;
+  font-size: 30px;
+  font-family: sans-serif;
+  position: absolute;
+}
+
+.circle {
+  height: 250px;
+  width: 250px;
+  background-color: #FFA600;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+}
+
+.circle-image {
+  background-repeat: no-repeat;
+  background-size: 95%;
+  background-position: center;
+}
+
+.logout {
+  position: relative;
+}
+
+.logout a:after {
+  content: "";
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.logout a:hover:after {
+  content: "Logout";
+  opacity: 1;
+  pointer-events: auto;
+  top: 20px;
+  left: -60px;
+}
+
+.logout a:hover span {
+  opacity: 0;
+}
+
+

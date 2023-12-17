@@ -1,0 +1,89 @@
+.login_box {
+    width: 500px;
+    height: 300px; 
+    fill: #FFA500;
+    position: absolute;
+}
+
+h2
+{
+    color: #0077B6;
+    font-size: 55px;
+    font-family: georgia;
+    position: absolute
+}
+
+h3
+{
+  color: #0077B6;
+  font-size: 30px;
+  font-family: sans-serif;
+  position: absolute;
+}
+
+.input_box {
+    width: 515px;
+    height: 30px;
+    background: transparent;
+    position: absolute;
+    fill: white;
+    padding-left: 5px;
+    left: 475px;
+}
+
+.submit_button {
+    width: 525px;
+    height: 35px;
+    background: transparent;
+    position: absolute;
+    top: 530px;
+    left: 475px;
+    color: black;
+    font-family: georgia;
+    font-size: 18px;
+    font-style: italic;
+    border-radius: 10;
+}
+
+::placeholder {
+    color: black;
+    font-family: georgia;
+    font-size: 15px;
+    font-style: italic;
+    padding-left: 10px !important;
+} 
+
+.signup_button {
+    width: 200px;
+    height: 60px;
+    background: #0077B6;
+    position: absolute;
+    top: 209px;
+    left: 820px;
+    color: white;
+    font-family: georgia;
+    font-size: 18px;
+    font-style: italic;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: -10px;
+    text-align: center;
+}
+
+.message {
+    padding: 10px;
+    background-color: #FFA500;
+    position: fixed;
+    bottom: 100px;
+    left: 50%;  
+    transform: translateX(-50%);
+    animation: fadeIn 0.5s;
+    font-family: georgia;
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+.navbar {
+  list-style-type: none;
+  display: flex;
+  margin: -8px;
+  padding: 0px;
+  background: #FFFFFF;
+  border-radius: 0;
+  font-family: Georgia;
+  font-size: 24px;
+}
+
+.website_title
+{
+  font-family: Georgia;
+  font-size: 24px;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-left: 100px;
+}
+
+.nav_items
+{
+  float: left;
+  text-decoration: none;
+  color: black;
+  padding-top: 20px;
+  padding-right: 150px;
+  padding-bottom: 20px;
+  display: block;
+  margin-left: -110px;
+}
+
+.nav_items hover
+{
+  color: blue;
+}
+
+.forum_heading {
+  background-color: #FFA600;
+  width: 101%;
+  height: 160px;
+  position: relative;
+  left: -8px;
+  color: black;
+  font-family: Allerta Stencil;
+  font-size: 80px;
+  text-align: center;
+  vertical-align: center;
+  top: 8px;
+  line-height: 150px;
+}
+
+

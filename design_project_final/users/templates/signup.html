@@ -1,0 +1,52 @@
+{% load static %}
+
+{% block content %} 
+
+{% if form.errors %}
+There was an error with your form
+{% endif %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup - TheMYPGuru</title>
+    <meta charset = "UTF-8">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body style="background-color: #0077B6">
+    <ul class = "navbar">
+        <li class = "website_title">TheMYPGuru</li>
+        <li><a href="{% url 'home' %}" class = "nav_items">Home</a></li>
+        <li><a href=# class = "nav_items">Forum</a></li>
+        <li><a href=# class = "nav_items">About</a></li>
+        <li class = "nav_items">|</li>
+        <li><a href="{% url 'login' %}" class = "nav_items">Log In</a></li>
+    </ul>
+    
+    <img src="{% static 'login_box.png'%}" style = "position:relative; left:460px; top:150px; width:550px; height: 440px;">
+
+    <form action="" method=POST>
+        {% csrf_token %}
+        <h2 style="top:165px; left:475px; margin-top: 50px;">Sign Up</h2>
+        <h3 style="top:275px; left:475px;">Username*</h3>
+        <input class="input_box" type="text" name="username" style="top: 345px;" placeholder="Enter your username here">
+        <h3 style="top:367.5px; left:475px;">Password*</h3>
+        <input class="input_box" type="password" name="password1" style="top:437.5px;" placeholder="Enter your password here">
+        <h3 style = "top:457.5px; left:475px;">Confirm Password*</h3>
+        <input class = "input_box" type = "password" name="password2" style = "top:527.5px;" placeholder = "Confirm your password here">
+        <button class="submit_button" style = "top: 592.5px;" type="submit" value="Submit">Sign Up</button>
+        {% endblock %}
+    </form>
+    
+    <button class = "signup_button"><a href = {% url 'users:login' %}><h2 style = "font-size: 45px; color: #ffa500; top: -35px;">Log In</h2></a></button>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class = "message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+        
+</body>
+</html>
